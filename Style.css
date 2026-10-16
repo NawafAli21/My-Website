@@ -1528,3 +1528,27 @@ footer {
     }
 }
 
+
+
+
+
+/* Arabic */
+html[lang="ar"] .skill-top,
+html[lang="ar"] .skill-info {
+    direction: rtl;
+}
+
+/* English */
+html[lang="en"] .skill-top,
+html[lang="en"] .skill-info {
+    direction: ltr;
+}
+
+.skill-top,
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
