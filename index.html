@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -21,23 +22,25 @@
 </head>
 
 <body>
+
+    <!-- Page Loader -->
     <div class="page-loader" id="pageLoader">
-    <div class="loader-content">
-        <div class="loader-logo">&lt;N/&gt;</div>
+        <div class="loader-content">
+            <div class="loader-logo">&lt;N/&gt;</div>
+            <div class="loader-name">NAWAF ALI</div>
 
-        <div class="loader-name">NAWAF ALI</div>
+            <div class="loader-line">
+                <div class="loader-progress" id="loaderProgress"></div>
+            </div>
 
-        <div class="loader-line">
-            <div class="loader-progress" id="loaderProgress"></div>
-        </div>
-
-        <div class="loader-info">
-            <span id="loaderStatus">جاري التحميل...</span>
-            <span id="loaderPercentage">0%</span>
+            <div class="loader-info">
+                <span id="loaderStatus">جاري التحميل...</span>
+                <span id="loaderPercentage">0%</span>
+            </div>
         </div>
     </div>
-</div>
 
+    <!-- Background -->
     <div class="background">
         <div class="grid"></div>
 
@@ -61,13 +64,13 @@
         </div>
     </div>
 
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
-
         <div class="nav-container">
 
             <a href="#home" class="logo">&lt;N/&gt;</a>
 
-            <button class="menu-toggle" id="menuToggle">
+            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
                 <i class="fa-solid fa-bars"></i>
             </button>
 
@@ -91,18 +94,30 @@
                     التعليم
                 </a>
 
-                <button class="language-btn" id="languageBtn">
+                <!-- Music Button -->
+                <button class="music-btn" id="musicBtn" type="button"
+                    aria-label="تشغيل الموسيقى" aria-pressed="false">
+                    <i class="fa-solid fa-play" id="musicIcon"></i>
+                    <span id="musicText">تشغيل الموسيقى</span>
+                </button>
+
+                <button class="language-btn" id="languageBtn" type="button">
                     EN
                 </button>
 
             </div>
-
         </div>
-
     </nav>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop preload="none">
+        <source src="audio/snowfall1.mp3" type="audio/mpeg">
+        متصفحك لا يدعم تشغيل الصوت.
+    </audio>
 
     <main>
 
+        <!-- Hero -->
         <section class="hero" id="home">
 
             <div class="hero-content">
@@ -113,10 +128,8 @@
                     مرحباً، أنا
                 </span>
 
-                <h1
-                    data-ar="نواف علي"
-                    data-en="Nawaf Ali">
-                    نواف غلي
+                <h1 data-ar="نواف علي" data-en="Nawaf Ali">
+                    نواف علي
                 </h1>
 
                 <div class="hero-changing">
@@ -126,15 +139,13 @@
 
                 <div class="hero-buttons">
 
-                    <a href="#projects"
-                        class="btn primary"
+                    <a href="#projects" class="btn primary"
                         data-ar="استعرض مشاريعي"
                         data-en="View My Projects">
                         استعرض مشاريعي
                     </a>
 
-                    <a href="#about"
-                        class="btn secondary"
+                    <a href="#about" class="btn secondary"
                         data-ar="تعرف علي"
                         data-en="About Me">
                         تعرف علي
@@ -144,11 +155,17 @@
 
                 <div class="social-links">
 
-                    <a href="https://github.com/NawafAli21" aria-label="GitHub">
+                    <a href="https://github.com/NawafAli21"
+                        aria-label="GitHub"
+                        target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fa-brands fa-github"></i>
                     </a>
 
-                    <a href="https://www.linkedin.com/in/nawaf-al-khathami-078597393/" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/nawaf-al-khathami-078597393/"
+                        aria-label="LinkedIn"
+                        target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
 
@@ -193,7 +210,6 @@
                         </span>
 
                     </div>
-
                 </div>
 
                 <div class="tech-tag tag-html">HTML</div>
@@ -205,6 +221,7 @@
 
         </section>
 
+        <!-- About -->
         <section class="section reveal" id="about">
 
             <div class="section-title">
@@ -219,16 +236,14 @@
 
                 <div class="about-text">
 
-                    <h3
-                        data-ar="أبني، أتعلم، وأتطور."
+                    <h3 data-ar="أبني، أتعلم، وأتطور."
                         data-en="Build. Learn. Evolve.">
                         أبني، أتعلم، وأتطور.
                     </h3>
 
-                    <p
-                        data-ar="أنا نواف، طالب في كلية التقنية بالدمام متخصص في البرمجة وتطوير الويب. أركز على بناء مشاريع عملية تساعدني على تحويل المعرفة النظرية إلى مهارات حقيقية."
-                        data-en="I'm Nawaf, a Programming and Web Development student in College Of Technology in Dammam. I focus on building practical projects that turn theoretical knowledge into real-world skills.">
-                        أنا نواف، طالب في تخصص تقنية البرمجة وتطوير الويب. أركز على بناء مشاريع عملية تساعدني على تحويل المعرفة النظرية إلى مهارات حقيقية.
+                    <p data-ar="أنا نواف، طالب في الكلية التقنية بالدمام متخصص في البرمجة وتطوير الويب. أركز على بناء مشاريع عملية تساعدني على تحويل المعرفة النظرية إلى مهارات حقيقية."
+                        data-en="I'm Nawaf, a Programming and Web Development student at the College of Technology in Dammam. I focus on building practical projects that turn theoretical knowledge into real-world skills.">
+                        أنا نواف، طالب في الكلية التقنية بالدمام متخصص في البرمجة وتطوير الويب. أركز على بناء مشاريع عملية تساعدني على تحويل المعرفة النظرية إلى مهارات حقيقية.
                     </p>
 
                 </div>
@@ -237,6 +252,7 @@
 
                     <div class="about-card">
                         <i class="fa-solid fa-gauge-high"></i>
+
                         <h4 data-ar="أبني مواقع وأنظمة بأداء عالٍ"
                             data-en="Building High-Performance Websites & Systems">
                             أبني مواقع وأنظمة بأداء عالٍ
@@ -244,15 +260,8 @@
                     </div>
 
                     <div class="about-card">
-                        <i class="fa-solid fa-diagram-project"></i>
-                        <h4 data-ar="أفكر بعقلية هندسية"
-                            data-en="Thinking with an Engineering Mindset">
-                            أفكر بعقلية هندسية
-                        </h4>
-                    </div>
-
-                    <div class="about-card">
                         <i class="fa-solid fa-arrow-trend-up"></i>
+
                         <h4 data-ar="أتطور باستمرار"
                             data-en="Continuously Improving">
                             أتطور باستمرار
@@ -265,6 +274,7 @@
 
         </section>
 
+        <!-- Skills -->
         <section class="section reveal" id="skills">
 
             <div class="section-title">
@@ -274,11 +284,13 @@
                     منظومة المهارات
                 </h2>
             </div>
+
             <p data-ar="تتحدث المهارات باستمرار مع تطور معرفتي وخبرتي العملية."
-   data-en="Skills are continuously updated as my knowledge and practical experience grow.">
-    تتحدث نسب المهارات باستمرار مع تطور معرفتي وخبرتي العملية.
+                data-en="My skills continue to develop as my knowledge and practical experience grow.">
+                تتحدث المهارات باستمرار مع تطور معرفتي وخبرتي العملية.
             </p>
-                  <br> <br> 
+
+            <br><br>
 
             <div class="skills-grid">
 
@@ -396,6 +408,7 @@
 
         </section>
 
+        <!-- Courses -->
         <section class="section reveal" id="courses">
 
             <div class="section-title">
@@ -409,148 +422,120 @@
             <div class="courses-grid">
 
                 <article class="course-card">
-
                     <div class="course-icon">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
 
                     <div class="course-content">
-
                         <h3 data-ar="مقدمة في الأمن السيبراني"
                             data-en="Introduction to Cybersecurity">
                             مقدمة في الأمن السيبراني
                         </h3>
 
                         <div class="course-source">
-                            <span data-ar="المنصة" data-en="Platform">
-                                المنصة
-                            </span>
+                            <span data-ar="المنصة" data-en="Platform">المنصة</span>
                             <strong>سطر</strong>
                         </div>
 
                         <time data-ar="نوفمبر 2025" data-en="November 2025">
                             نوفمبر 2025
                         </time>
-
                     </div>
-
                 </article>
 
                 <article class="course-card">
-
                     <div class="course-icon">
                         <i class="fa-solid fa-chart-column"></i>
                     </div>
 
                     <div class="course-content">
-
                         <h3 data-ar="أهمية علوم البيانات والذكاء الاصطناعي"
                             data-en="The Importance of Data Science and Artificial Intelligence">
                             أهمية علوم البيانات والذكاء الاصطناعي
                         </h3>
 
                         <div class="course-source">
-                            <span data-ar="المنصة" data-en="Platform">
-                                المنصة
-                            </span>
+                            <span data-ar="المنصة" data-en="Platform">المنصة</span>
                             <strong>دروب</strong>
                         </div>
 
                         <time data-ar="يناير 2026" data-en="January 2026">
                             يناير 2026
                         </time>
-
                     </div>
-
                 </article>
 
                 <article class="course-card">
-
                     <div class="course-icon">
                         <i class="fa-solid fa-brain"></i>
                     </div>
 
                     <div class="course-content">
-
                         <h3 data-ar="الذكاء الاصطناعي وتحليل البيانات في مستقبل سوق العمل"
                             data-en="Artificial Intelligence and Data Analysis in the Future of the Job Market">
                             الذكاء الاصطناعي وتحليل البيانات في مستقبل سوق العمل
                         </h3>
 
                         <div class="course-source">
-                            <span data-ar="المنصة" data-en="Platform">
-                                المنصة
-                            </span>
+                            <span data-ar="المنصة" data-en="Platform">المنصة</span>
                             <strong>دروب</strong>
                         </div>
 
                         <time data-ar="يناير 2026" data-en="January 2026">
                             يناير 2026
                         </time>
-
                     </div>
-
                 </article>
 
                 <article class="course-card">
-
-                    <div class="course-icon">
-                        <i class="fa-solid fa-comments"></i>
-                    </div>
-
-                    <div class="course-content">
-
-                        <h3 data-ar="المقابلات الوظيفية"
-                            data-en="Job Interviews">
-                            المقابلات الوظيفية
-                        </h3>
-
-                        <div class="course-source">
-                            <span data-ar="المنصة" data-en="Platform">
-                                المنصة
-                            </span>
-                            <strong>دروب</strong>
-                        </div>
-
-                        <time data-ar="يونيو 2026" data-en="June 2026">
-                            يونيو 2026
-                        </time>
-
-                    </div>
-
-                </article>
-
-                <article class="course-card">
-
                     <div class="course-icon">
                         <i class="fa-solid fa-pen-ruler"></i>
                     </div>
 
                     <div class="course-content">
-
-                        <h3 data-ar="UX / UI" data-en="UX / UI">
-                            UX / UI
+                        <h3 data-ar="تصميم واجهة وتجربة المستخدم"
+                            data-en="UI / UX Design">
+                            تصميم واجهة وتجربة المستخدم
                         </h3>
 
                         <div class="course-source">
-                            <span data-ar="المنصة" data-en="Platform">
-                                المنصة
-                            </span>
+                            <span data-ar="المنصة" data-en="Platform">المنصة</span>
                             <strong>سطر</strong>
                         </div>
 
                         <time data-ar="سبتمبر 2026" data-en="September 2026">
                             سبتمبر 2026
                         </time>
+                    </div>
+                </article>
 
+                <article class="course-card">
+                    <div class="course-icon">
+                        <i class="fa-solid fa-chart-column"></i>
                     </div>
 
+                    <div class="course-content">
+                        <h3 data-ar="مقدمة في إنترنت الأشياء والتحول الرقمي"
+                            data-en="Introduction to IoT and Digital Transformation">
+                            مقدمة في إنترنت الأشياء والتحول الرقمي
+                        </h3>
+
+                        <div class="course-source">
+                            <span data-ar="المنصة" data-en="Platform">المنصة</span>
+                            <strong>CISCO</strong>
+                        </div>
+
+                        <time data-ar="أكتوبر 2026" data-en="October 2026">
+                            أكتوبر 2026
+                        </time>
+                    </div>
                 </article>
 
             </div>
 
         </section>
 
+        <!-- Projects -->
         <section class="section reveal" id="projects">
 
             <div class="section-title">
@@ -565,9 +550,7 @@
 
                 <article class="project-card">
 
-                    <div class="project-number">
-                        01
-                    </div>
+                    <div class="project-number">01</div>
 
                     <div class="project-status completed"
                         data-ar="مكتمل"
@@ -575,56 +558,13 @@
                         مكتمل
                     </div>
 
-                    <h3
-                        data-ar="موقع تعريفي لوزارة الاتصالات"
-                        data-en="Ministry of Communications Informational Website">
-                        موقع تعريفي لوزارة الاتصالات
-                    </h3>
-
-                    <p
-                        data-ar="موقع تعريفي يركز على بناء واجهة منظمة ومتجاوبة باستخدام تقنيات الويب الأساسية."
-                        data-en="An informational website focused on building a structured and responsive interface using core web technologies.">
-                        موقع تعريفي يركز على بناء واجهة منظمة ومتجاوبة باستخدام تقنيات الويب الأساسية.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                    </div>
-
-                    <div class="project-actions">
-
-                        <a href="https://tangerine-donut-587104.netlify.app/"
-                            class="project-btn"
-                            data-ar="عرض المشروع"
-                            data-en="View Project">
-                            عرض المشروع
-                        </a>
-
-                    </div>
-
-                </article>
-
-                <article class="project-card">
-
-                    <div class="project-number">
-                        02
-                    </div>
-
-                    <div class="project-status progress"
-                        data-ar="قيد التطوير"
-                        data-en="In Development">
-                        قيد التطوير
-                    </div>
-
-                    <h3>
+                    <h3 data-ar="DevTrack" data-en="DevTrack">
                         DevTrack
                     </h3>
 
-                    <p
-                        data-ar="تطبيق ويب لإدارة وتتبع مشاريع المطورين، يجمع بين إدارة المشاريع والتكامل مع GitHub."
-                        data-en="A web application for managing and tracking developer projects, combining project management with GitHub integration.">
-                        تطبيق ويب لإدارة وتتبع مشاريع المطورين، يجمع بين إدارة المشاريع والتكامل مع GitHub.
+                    <p data-ar="نظام لإدارة المشاريع والمهام، يساعد المطورين على تنظيم مشاريعهم ومتابعة تقدمهم وإنجازاتهم في مكان واحد."
+                        data-en="DevTrack is a project and task management system that helps developers organize their projects and track their progress in one place.">
+                        DevTrack هو نظام لإدارة المشاريع والمهام، يساعد المطورين على تنظيم مشاريعهم ومتابعة تقدمهم وإنجازاتهم في مكان واحد.
                     </p>
 
                     <div class="tech-stack">
@@ -636,13 +576,14 @@
                     </div>
 
                     <div class="project-actions">
-
-                        <span class="project-btn disabled"
-                            data-ar="قريبًا"
-                            data-en="Coming Soon">
-                            قريبًا
-                        </span>
-
+                        <a href="https://devtrack.freehosting.dev/"
+                            class="project-btn"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-ar="عرض المشروع"
+                            data-en="View Project">
+                            عرض المشروع
+                        </a>
                     </div>
 
                 </article>
@@ -651,6 +592,7 @@
 
         </section>
 
+        <!-- Education -->
         <section class="section reveal" id="education">
 
             <div class="section-title">
@@ -670,7 +612,7 @@
                 <div>
 
                     <span data-ar="الكلية التقنية بالدمام"
-                        data-en="College Of Technology in Dammam">
+                        data-en="College of Technology in Dammam">
                         الكلية التقنية بالدمام
                     </span>
 
@@ -689,8 +631,8 @@
 
     </main>
 
+    <!-- Footer -->
     <footer>
-
         <div class="footer-content">
 
             <span>&lt;Nawaf /&gt;</span>
@@ -700,20 +642,19 @@
                 أبني، أتعلم، وأتطور.
             </p>
 
-            <small>
-                © 2026 نواف غلي
-            </small>
+            <small>© 2026 نواف علي</small>
 
         </div>
-
     </footer>
 
-    <button class="back-to-top" id="backToTop">
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="العودة إلى الأعلى">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
+    <!-- External JavaScript -->
     <script src="script.js"></script>
 
 </body>
-
 </html>
+
