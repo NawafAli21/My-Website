@@ -1,4 +1,3 @@
-
 /* ========================================
    1. ELEMENTS
 ======================================== */
@@ -8,6 +7,7 @@ const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
 const navbar = document.getElementById("navbar");
 const backToTop = document.getElementById("backToTop");
+
 const changingText = document.getElementById("changingText");
 
 const musicBtn = document.getElementById("musicBtn");
@@ -31,6 +31,11 @@ if (currentLanguage !== "ar" && currentLanguage !== "en") {
     currentLanguage = "ar";
 }
 
+
+/* ========================================
+   3. TYPING ANIMATION
+======================================== */
+
 const phrases = {
     ar: [
         "مطور ويب",
@@ -45,86 +50,51 @@ const phrases = {
     ]
 };
 
-const musicLabels = {
-    ar: {
-        play: "تشغيل الموسيقى",
-        pause: "إيقاف الموسيقى",
-        error: "تعذر تشغيل الموسيقى"
-    },
-
-    en: {
-        play: "Play Music",
-        pause: "Pause Music",
-        error: "Unable to play music"
-    }
-};
-
-
-/* ========================================
-   3. TYPING ANIMATION
-======================================== */
-
 let phraseIndex = 0;
-let characterIndex = 0;
-let deleting = false;
-let typingTimer;
+let charIndex = 0;
+let isDeleting = false;
+let typingTimeout;
 
 function typePhrase() {
-    if (!changingText) {
-        return;
-    }
+    if (!changingText) return;
 
     const currentPhrases = phrases[currentLanguage];
     const currentPhrase = currentPhrases[phraseIndex];
 
-    if (!deleting) {
-        characterIndex++;
-
-        changingText.textContent =
-            currentPhrase.substring(0, characterIndex);
-
-        if (characterIndex >= currentPhrase.length) {
-            deleting = true;
-
-            typingTimer = setTimeout(typePhrase, 1800);
-            return;
-        }
-
-        typingTimer = setTimeout(typePhrase, 70);
-
+    if (isDeleting) {
+        charIndex--;
     } else {
-        characterIndex--;
-
-        changingText.textContent =
-            currentPhrase.substring(0, characterIndex);
-
-        if (characterIndex <= 0) {
-            characterIndex = 0;
-            deleting = false;
-
-            phraseIndex =
-                (phraseIndex + 1) % currentPhrases.length;
-
-            typingTimer = setTimeout(typePhrase, 400);
-            return;
-        }
-
-        typingTimer = setTimeout(typePhrase, 35);
+        charIndex++;
     }
+
+    changingText.textContent = currentPhrase.substring(0, charIndex);
+
+    let typingSpeed = isDeleting ? 40 : 90;
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+        isDeleting = true;
+        typingSpeed = 1800;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+
+        phraseIndex = (phraseIndex + 1) % currentPhrases.length;
+
+        typingSpeed = 350;
+    }
+
+    typingTimeout = setTimeout(typePhrase, typingSpeed);
 }
 
 function restartTyping() {
-    if (!changingText) {
-        return;
-    }
-
-    clearTimeout(typingTimer);
+    clearTimeout(typingTimeout);
 
     phraseIndex = 0;
-    characterIndex = 0;
-    deleting = false;
+    charIndex = 0;
+    isDeleting = false;
 
-    changingText.textContent = "";
+    if (changingText) {
+        changingText.textContent = "";
+    }
 
     typePhrase();
 }
@@ -135,59 +105,54 @@ function restartTyping() {
 ======================================== */
 
 function updateSkillDirection() {
-    const skillContainers = document.querySelectorAll(
-        ".skill-info, .skill-top"
-    );
-
-    skillContainers.forEach(container => {
-        container.style.direction =
-            currentLanguage === "ar" ? "rtl" : "ltr";
+    document.querySelectorAll(".skill-info").forEach(element => {
+        element.style.direction = "ltr";
+        element.style.display = "flex";
+        element.style.justifyContent = "space-between";
+        element.style.flexDirection =
+            currentLanguage === "ar" ? "row-reverse" : "row";
     });
 }
+
+
 
 
 /* ========================================
    5. MUSIC PLAYER
 ======================================== */
 
-function updateMusicButton() {
-    if (!musicBtn || !backgroundMusic) {
-        return;
-    }
+const musicLabels = {
+    ar: {
+        play: "🎵",
+        pause: "🎵",
+        error: "تعذر تشغيل الموسيقى"
+    },
 
-    const isPlaying = !backgroundMusic.paused;
+    en: {
+        play: "Play Music",
+        pause: "Pause Music",
+        error: "Unable to play music"
+    }
+};
+
+function updateMusicButton() {
+    if (!musicBtn || !musicIcon || !musicText) return;
 
     const labels = musicLabels[currentLanguage];
 
-    if (musicIcon) {
-        musicIcon.className = isPlaying
-            ? "fa-solid fa-pause"
-            : "fa-solid fa-play";
+    if (backgroundMusic && !backgroundMusic.paused) {
+        musicIcon.className = "fa-solid fa-pause";
+        musicText.textContent = labels.pause;
+        musicBtn.setAttribute("aria-pressed", "true");
+    } else {
+        musicIcon.className = "fa-solid fa-play";
+        musicText.textContent = labels.play;
+        musicBtn.setAttribute("aria-pressed", "false");
     }
-
-    if (musicText) {
-        musicText.textContent = isPlaying
-            ? labels.pause
-            : labels.play;
-    }
-
-    musicBtn.setAttribute(
-        "aria-label",
-        isPlaying ? labels.pause : labels.play
-    );
-
-    musicBtn.setAttribute(
-        "aria-pressed",
-        String(isPlaying)
-    );
 }
 
 if (backgroundMusic) {
     backgroundMusic.volume = 0.35;
-
-    backgroundMusic.addEventListener("play", updateMusicButton);
-    backgroundMusic.addEventListener("pause", updateMusicButton);
-    backgroundMusic.addEventListener("ended", updateMusicButton);
 }
 
 if (musicBtn && backgroundMusic) {
@@ -195,23 +160,22 @@ if (musicBtn && backgroundMusic) {
         if (backgroundMusic.paused) {
             try {
                 await backgroundMusic.play();
+                updateMusicButton();
             } catch (error) {
-                console.error("Music playback failed:", error);
+                musicText.textContent =
+                    musicLabels[currentLanguage].error;
 
-                const labels = musicLabels[currentLanguage];
-
-                if (musicText) {
-                    musicText.textContent = labels.error;
-                }
-
-                return;
+                console.error("Music playback error:", error);
             }
         } else {
             backgroundMusic.pause();
+            updateMusicButton();
         }
-
-        updateMusicButton();
     });
+
+    backgroundMusic.addEventListener("play", updateMusicButton);
+    backgroundMusic.addEventListener("pause", updateMusicButton);
+    backgroundMusic.addEventListener("ended", updateMusicButton);
 }
 
 
@@ -220,27 +184,21 @@ if (musicBtn && backgroundMusic) {
 ======================================== */
 
 function updateLanguage() {
-    document.querySelectorAll("[data-ar][data-en]").forEach(element => {
-        element.textContent =
-            currentLanguage === "ar"
-                ? element.dataset.ar
-                : element.dataset.en;
-    });
-
     document.documentElement.lang = currentLanguage;
 
     document.documentElement.dir =
         currentLanguage === "ar" ? "rtl" : "ltr";
 
+    document.querySelectorAll("[data-ar][data-en]").forEach(element => {
+        element.textContent = element.getAttribute(
+            `data-${currentLanguage}`
+        );
+    });
+
     if (languageBtn) {
         languageBtn.textContent =
             currentLanguage === "ar" ? "EN" : "AR";
     }
-
-    document.title =
-        currentLanguage === "ar"
-            ? "نواف علي | مطور ويب"
-            : "Nawaf Ali | Web Developer";
 
     localStorage.setItem("language", currentLanguage);
 
@@ -252,8 +210,7 @@ function updateLanguage() {
 
 if (languageBtn) {
     languageBtn.addEventListener("click", () => {
-        currentLanguage =
-            currentLanguage === "ar" ? "en" : "ar";
+        currentLanguage = currentLanguage === "ar" ? "en" : "ar";
 
         updateLanguage();
     });
@@ -265,33 +222,40 @@ if (languageBtn) {
 ======================================== */
 
 function closeMenu() {
-    if (!navMenu || !menuToggle) {
-        return;
-    }
+    if (!navMenu || !menuToggle) return;
 
     navMenu.classList.remove("active");
 
-    menuToggle.innerHTML =
-        '<i class="fa-solid fa-bars"></i>';
-
     menuToggle.setAttribute("aria-expanded", "false");
+
+    const icon = menuToggle.querySelector("i");
+
+    if (icon) {
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+    }
 }
 
 if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", () => {
-        const isOpen = navMenu.classList.toggle("active");
+    menuToggle.addEventListener("click", event => {
+        event.stopPropagation();
 
-        menuToggle.innerHTML = isOpen
-            ? '<i class="fa-solid fa-xmark"></i>'
-            : '<i class="fa-solid fa-bars"></i>';
+        const isOpen = navMenu.classList.toggle("active");
 
         menuToggle.setAttribute(
             "aria-expanded",
             String(isOpen)
         );
+
+        const icon = menuToggle.querySelector("i");
+
+        if (icon) {
+            icon.classList.toggle("fa-bars", !isOpen);
+            icon.classList.toggle("fa-xmark", isOpen);
+        }
     });
 
-    document.querySelectorAll(".nav-menu a").forEach(link => {
+    navMenu.querySelectorAll("a").forEach(link => {
         link.addEventListener("click", closeMenu);
     });
 
@@ -303,6 +267,12 @@ if (menuToggle && navMenu) {
             closeMenu();
         }
     });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            closeMenu();
+        }
+    });
 }
 
 
@@ -310,27 +280,27 @@ if (menuToggle && navMenu) {
    8. NAVBAR & BACK TO TOP
 ======================================== */
 
-function updateScrollElements() {
+function handleScroll() {
+    const scrollPosition = window.scrollY;
+
     if (navbar) {
         navbar.classList.toggle(
             "scrolled",
-            window.scrollY > 40
+            scrollPosition > 40
         );
     }
 
     if (backToTop) {
         backToTop.classList.toggle(
             "show",
-            window.scrollY > 500
+            scrollPosition > 500
         );
     }
 }
 
-window.addEventListener("scroll", updateScrollElements, {
-    passive: true
-});
+window.addEventListener("scroll", handleScroll);
 
-updateScrollElements();
+handleScroll();
 
 if (backToTop) {
     backToTop.addEventListener("click", () => {
@@ -349,22 +319,24 @@ if (backToTop) {
 const revealElements = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
+    const revealObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
 
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.12
-    });
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.12
+        }
+    );
 
     revealElements.forEach(element => {
         revealObserver.observe(element);
     });
-
 } else {
     revealElements.forEach(element => {
         element.classList.add("visible");
@@ -373,47 +345,94 @@ if ("IntersectionObserver" in window) {
 
 
 /* ========================================
-   10. SKILL BARS
+   10. SKILL BARS & PERCENTAGES
 ======================================== */
 
 const skillElements = document.querySelectorAll(".skill");
 
-if ("IntersectionObserver" in window) {
-    const skillObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            }
+function animateSkill(skill) {
+    const fill = skill.querySelector(".skill-fill");
+    const percent = skill.querySelector(".skill-percent");
 
-            const fill = entry.target.querySelector(".skill-fill");
+    if (!fill) return;
 
-            if (fill) {
-                const progress = Number(fill.dataset.progress);
+    const rawProgress = Number(fill.dataset.progress);
 
-                if (Number.isFinite(progress)) {
-                    fill.style.width =
-                        `${Math.min(100, Math.max(0, progress))}%`;
-                }
-            }
+    const progress = Number.isFinite(rawProgress)
+        ? Math.min(100, Math.max(0, rawProgress))
+        : 0;
 
-            skillObserver.unobserve(entry.target);
+    // Start the skill bar from zero.
+    fill.style.width = "0%";
+
+    // Start the percentage counter from zero.
+    if (percent) {
+        percent.textContent = "0%";
+    }
+
+    // Animate the bar.
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            fill.style.width = `${progress}%`;
         });
-    }, {
-        threshold: 0.35
     });
+
+    // Animate the number alongside the bar.
+    if (percent) {
+        const duration = 1500;
+        let startTime = null;
+
+        function animatePercentage(timestamp) {
+            if (startTime === null) {
+                startTime = timestamp;
+            }
+
+            const elapsed = timestamp - startTime;
+
+            const ratio = Math.min(elapsed / duration, 1);
+
+            // Smooth easing.
+            const eased = 1 - Math.pow(1 - ratio, 3);
+
+            const currentValue = Math.round(
+                progress * eased
+            );
+
+            percent.textContent = `${currentValue}%`;
+
+            if (ratio < 1) {
+                requestAnimationFrame(animatePercentage);
+            } else {
+                percent.textContent = `${progress}%`;
+            }
+        }
+
+        requestAnimationFrame(animatePercentage);
+    }
+}
+
+if ("IntersectionObserver" in window) {
+    const skillObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+
+                animateSkill(entry.target);
+
+                skillObserver.unobserve(entry.target);
+            });
+        },
+        {
+            threshold: 0.2
+        }
+    );
 
     skillElements.forEach(skill => {
         skillObserver.observe(skill);
     });
-
 } else {
     skillElements.forEach(skill => {
-        const fill = skill.querySelector(".skill-fill");
-
-        if (fill) {
-            fill.style.width =
-                `${fill.dataset.progress || 0}%`;
-        }
+        animateSkill(skill);
     });
 }
 
@@ -426,24 +445,22 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", event => {
         const targetId = link.getAttribute("href");
 
-        if (!targetId || targetId === "#") {
-            return;
-        }
+        if (!targetId || targetId === "#") return;
 
-        const target = document.getElementById(
+        const targetElement = document.getElementById(
             targetId.substring(1)
         );
 
-        if (!target) {
-            return;
+        if (targetElement) {
+            event.preventDefault();
+
+            targetElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+            closeMenu();
         }
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
     });
 });
 
@@ -452,29 +469,32 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
    12. FLOATING PARTICLES
 ======================================== */
 
-const particles = document.querySelectorAll(
+document.querySelectorAll(
     ".floating-particles span"
-);
+).forEach(particle => {
+    const delay = Math.random() * 8;
+    const duration = 6 + Math.random() * 10;
+    const x = Math.random() * 100;
+    const size = 2 + Math.random() * 4;
 
-particles.forEach((particle, index) => {
     particle.style.setProperty(
         "--delay",
-        `${index * -1.7}s`
+        `${delay}s`
     );
 
     particle.style.setProperty(
         "--duration",
-        `${8 + (index % 5)}s`
+        `${duration}s`
     );
 
     particle.style.setProperty(
         "--x",
-        `${(index * 83) % 100}%`
+        `${x}%`
     );
 
     particle.style.setProperty(
         "--size",
-        `${2 + (index % 4)}px`
+        `${size}px`
     );
 });
 
@@ -501,52 +521,79 @@ const loaderMessages = {
     ]
 };
 
-let loaderValue = 0;
-let loaderInterval = null;
-
 function updateLoaderLanguage() {
-    if (!loaderStatus) {
-        return;
+    if (!loaderStatus) return;
+
+    const messages = loaderMessages[currentLanguage];
+
+    if (loaderPercentage) {
+        const value = parseInt(loaderPercentage.textContent, 10) || 0;
+
+        if (value >= 100) {
+            loaderStatus.textContent = messages[4];
+        } else if (value >= 75) {
+            loaderStatus.textContent = messages[3];
+        } else if (value >= 50) {
+            loaderStatus.textContent = messages[2];
+        } else if (value >= 25) {
+            loaderStatus.textContent = messages[1];
+        } else {
+            loaderStatus.textContent = messages[0];
+        }
+    } else {
+        loaderStatus.textContent = messages[0];
     }
-
-    const messageIndex = loaderValue >= 100
-        ? 4
-        : Math.min(Math.floor(loaderValue / 25), 3);
-
-    loaderStatus.textContent =
-        loaderMessages[currentLanguage][messageIndex];
 }
 
 function startLoader() {
-    if (
-        !pageLoader ||
-        !loaderProgress ||
-        !loaderPercentage ||
-        !loaderStatus
-    ) {
-        return;
+    if (!pageLoader) return;
+
+    let loaderValue = 0;
+
+    if (loaderProgress) {
+        loaderProgress.style.width = "0%";
     }
 
-    loaderInterval = setInterval(() => {
-        loaderValue += Math.floor(Math.random() * 5) + 1;
+    if (loaderPercentage) {
+        loaderPercentage.textContent = "0%";
+    }
+
+    updateLoaderLanguage();
+
+    const loaderInterval = setInterval(() => {
+        loaderValue += Math.floor(Math.random() * 4) + 1;
 
         if (loaderValue >= 100) {
             loaderValue = 100;
 
             clearInterval(loaderInterval);
-            loaderInterval = null;
-        }
 
-        loaderProgress.style.width = `${loaderValue}%`;
-        loaderPercentage.textContent = `${loaderValue}%`;
+            if (loaderProgress) {
+                loaderProgress.style.width = "100%";
+            }
 
-        updateLoaderLanguage();
+            if (loaderPercentage) {
+                loaderPercentage.textContent = "100%";
+            }
 
-        if (loaderValue >= 100) {
+            updateLoaderLanguage();
+
             setTimeout(() => {
                 pageLoader.classList.add("hidden");
             }, 500);
+
+            return;
         }
+
+        if (loaderProgress) {
+            loaderProgress.style.width = `${loaderValue}%`;
+        }
+
+        if (loaderPercentage) {
+            loaderPercentage.textContent = `${loaderValue}%`;
+        }
+
+        updateLoaderLanguage();
     }, 70);
 }
 
@@ -556,6 +603,7 @@ function startLoader() {
 ======================================== */
 
 updateLanguage();
-updateMusicButton();
-startLoader();
 
+updateMusicButton();
+
+startLoader();
