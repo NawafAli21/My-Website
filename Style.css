@@ -1,674 +1,1603 @@
 
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="الموقع الشخصي لنواف علي - طالب برمجة وتطوير الويب.">
-
-    <title>نواف علي | مطور ويب</title>
-
-    <link rel="stylesheet" href="Style.css">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-
-<body>
-
-    <!-- Page Loader -->
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-content">
-            <div class="loader-logo">&lt;N/&gt;</div>
-            <div class="loader-name">NAWAF ALI</div>
-
-            <div class="loader-line">
-                <div class="loader-progress" id="loaderProgress"></div>
-            </div>
-
-            <div class="loader-info">
-                <span id="loaderStatus">جاري التحميل...</span>
-                <span id="loaderPercentage">0%</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Background -->
-    <div class="background">
-        <div class="grid"></div>
-
-        <div class="orb orb-one"></div>
-        <div class="orb orb-two"></div>
-        <div class="orb orb-three"></div>
-
-        <div class="floating-particles">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-
-            <a href="#home" class="logo">&lt;N/&gt;</a>
-
-            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-
-            <div class="nav-menu" id="navMenu">
-
-                <a href="#about" data-ar="من أنا" data-en="About">عني</a>
-
-                <a href="#skills" data-ar="المهارات" data-en="Skills">
-                    المهارات
-                </a>
-
-                <a href="#courses" data-ar="الدورات" data-en="Courses">
-                    الدورات
-                </a>
-
-                <a href="#projects" data-ar="المشاريع" data-en="Projects">
-                    المشاريع
-                </a>
-
-                <a href="#education" data-ar="التعليم" data-en="Education">
-                    التعليم
-                </a>
-
-                <!-- Music Button -->
-                <button class="music-btn" id="musicBtn" type="button"
-                    aria-label="🎵" aria-pressed="false">
-                    <i class="fa-solid fa-play" id="musicIcon"></i>
-                    <span id="musicText">🎵</span>
-                </button>
-
-                <button class="language-btn" id="languageBtn" type="button">
-                    EN
-                </button>
-
-            </div>
-        </div>
-    </nav>
-
-    <!-- Background Music -->
-    <audio id="backgroundMusic" loop preload="none">
-          <source src="audio/snowfall2.mp3" type="audio/mpeg">
-        متصفحك لا يدعم تشغيل الصوت.
-    </audio>
-
-    <main>
-
-        <!-- Hero -->
-        <section class="hero" id="home">
-
-            <div class="hero-content">
-
-                <span class="hero-intro"
-                    data-ar="مرحباً، أنا"
-                    data-en="Hello, I'm">
-                    مرحباً، أنا
-                </span>
-
-                <h1 data-ar="نواف علي" data-en="Nawaf Ali">
-                    نواف علي
-                </h1>
-
-                <div class="hero-changing">
-                    <span id="changingText">مطور ويب</span>
-                    <span class="cursor">|</span>
-                </div>
-
-                <div class="hero-buttons">
-
-                    <a href="#projects" class="btn primary"
-                        data-ar="استعرض مشاريعي"
-                        data-en="View My Projects">
-                        استعرض مشاريعي
-                    </a>
-
-                    <a href="#about" class="btn secondary"
-                        data-ar="تعرف علي"
-                        data-en="About Me">
-                        تعرف علي
-                    </a>
-
-                </div>
-
-                <div class="social-links">
-
-                    <a href="https://github.com/NawafAli21"
-                        aria-label="GitHub"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/nawaf-al-khathami-078597393/"
-                        aria-label="LinkedIn"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="hero-visual">
-
-                <div class="code-card">
-
-                    <div class="code-header">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-
-                    <div class="code-body">
-
-                        <span class="code-line">
-                            <b>const</b> developer = {
-                        </span>
-
-                        <span class="code-line indent">
-                            name: <em>"Nawaf"</em>,
-                        </span>
-
-                        <span class="code-line indent">
-                            role: <em>"Web Developer"</em>,
-                        </span>
-
-                        <span class="code-line indent">
-                            passion: <em>"Building"</em>,
-                        </span>
-
-                        <span class="code-line indent">
-                            learning: <em>true</em>
-                        </span>
-
-                        <span class="code-line">
-                            };
-                        </span>
-
-                    </div>
-                </div>
-
-                <div class="tech-tag tag-html">HTML</div>
-                <div class="tech-tag tag-css">CSS</div>
-                <div class="tech-tag tag-js">JavaScript</div>
-                <div class="tech-tag tag-php">PHP</div>
-
-            </div>
-
-        </section>
-
-        <!-- About -->
-        <section class="section reveal" id="about">
-
-            <div class="section-title">
-                <span>01</span>
-
-                <h2 data-ar="من أنا" data-en="About Me">
-                    من أنا
-                </h2>
-            </div>
-
-            <div class="about-grid">
-
-                <div class="about-text">
-
-                    <h3 data-ar="أبني، أتعلم، وأتطور."
-                        data-en="Build. Learn. Evolve.">
-                        أبني، أتعلم، وأتطور.
-                    </h3>
-
-                    <p data-ar="أنا نواف، طالب في الكلية التقنية بالدمام متخصص في البرمجة وتطوير الويب. أركز على بناء مشاريع عملية تساعدني على تحويل المعرفة النظرية إلى مهارات حقيقية."
-                        data-en="I'm Nawaf, a Programming and Web Development student at the College of Technology in Dammam. I focus on building practical projects that turn theoretical knowledge into real-world skills.">
-                        أنا نواف، طالب في الكلية التقنية بالدمام متخصص في البرمجة وتطوير الويب. أركز على بناء مشاريع عملية تساعدني على تحويل المعرفة النظرية إلى مهارات حقيقية.
-                    </p>
-
-                </div>
-
-                <div class="about-cards">
-
-                    <div class="about-card">
-                        <i class="fa-solid fa-gauge-high"></i>
-
-                        <h4 data-ar="أبني مواقع وأنظمة بأداء عالٍ"
-                            data-en="Building High-Performance Websites & Systems">
-                            أبني مواقع وأنظمة بأداء عالٍ
-                        </h4>
-                    </div>
-
-                    <div class="about-card">
-                        <i class="fa-solid fa-arrow-trend-up"></i>
-
-                        <h4 data-ar="أتطور باستمرار"
-                            data-en="Continuously Improving">
-                            أتطور باستمرار
-                        </h4>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-     
-        <!-- Skills -->
-        <section class="section reveal" id="skills">
-
-            <div class="section-title">
-                <span>02</span>
-
-                <h2 data-ar="منظومة المهارات" data-en="Skill System">
-                    منظومة المهارات
-                </h2>
-            </div>
-
-            <p data-ar="تتحدث المهارات باستمرار مع تطور معرفتي وخبرتي العملية."
-                data-en="My skills continue to develop as my knowledge and practical experience grow.">
-                تتحدث المهارات باستمرار مع تطور معرفتي وخبرتي العملية.
-            </p>
-
-            <br><br>
-
-            <div class="skills-grid">
-
-                <!-- HTML -->
-                <div class="skill reveal">
-                    <div class="skill-info" dir="ltr">
-                        <span>HTML</span>
-                        <span class="skill-percent">0%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-progress="94"></div>
-                    </div>
-                </div>
-
-                <!-- CSS -->
-                <div class="skill reveal">
-                    <div class="skill-info" dir="ltr">
-                        <span>CSS</span>
-                        <span class="skill-percent">0%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-progress="88"></div>
-                    </div>
-                </div>
-
-                <!-- JavaScript -->
-                <div class="skill reveal">
-                    <div class="skill-info" dir="ltr">
-                        <span>JavaScript</span>
-                        <span class="skill-percent">0%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-progress="75"></div>
-                    </div>
-                </div>
-
-                <!-- PHP -->
-                <div class="skill reveal">
-                    <div class="skill-info" dir="ltr">
-                        <span>PHP</span>
-                        <span class="skill-percent">0%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-progress="86"></div>
-                    </div>
-                </div>
-
-                <!-- MySQL -->
-                <div class="skill reveal">
-                    <div class="skill-info" dir="ltr">
-                        <span>MySQL</span>
-                        <span class="skill-percent">0%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-progress="97"></div>
-                    </div>
-                </div>
-
-                <!-- PL/SQL -->
-                <div class="skill reveal">
-                    <div class="skill-info" dir="ltr">
-                        <span>PL/SQL</span>
-                        <span class="skill-percent">0%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-progress="71"></div>
-                    </div>
-                </div>
-
-                <!-- Git & GitHub -->
-                <div class="skill reveal">
-                    <div class="skill-info" dir="ltr">
-                        <span>Git & GitHub</span>
-                        <span class="skill-percent">0%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-progress="80"></div>
-                    </div>
-                </div>
-
-                <!-- Microsoft Word -->
-                <div class="skill reveal">
-                    <div class="skill-info" dir="ltr">
-                        <span>Microsoft Word</span>
-                        <span class="skill-percent">0%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-progress="85"></div>
-                    </div>
-                </div>
-
-                <!-- Microsoft Excel -->
-                <div class="skill reveal">
-                    <div class="skill-info" dir="ltr">
-                        <span>Microsoft Excel</span>
-                        <span class="skill-percent">0%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-progress="78"></div>
-                    </div>
-                </div>
-
-                <!-- Microsoft PowerPoint -->
-                <div class="skill reveal">
-                    <div class="skill-info" dir="ltr">
-                        <span>Microsoft PowerPoint</span>
-                        <span class="skill-percent">0%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-progress="82"></div>
-                    </div>
-                </div>
-
-                <!-- Figma -->
-                <div class="skill reveal">
-                    <div class="skill-info" dir="ltr">
-                        <span>Figma (UI Design)</span>
-                        <span class="skill-percent">0%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-fill" data-progress="62"></div>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- Courses -->
-        <section class="section reveal" id="courses">
-
-            <div class="section-title">
-                <span>03</span>
-
-                <h2 data-ar="الدورات" data-en="Courses">
-                    الدورات
-                </h2>
-            </div>
-
-            <div class="courses-grid">
-
-                <article class="course-card">
-                    <div class="course-icon">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-
-                    <div class="course-content">
-                        <h3 data-ar="مقدمة في الأمن السيبراني"
-                            data-en="Introduction to Cybersecurity">
-                            مقدمة في الأمن السيبراني
-                        </h3>
-
-                        <div class="course-source">
-                            <span data-ar="المنصة" data-en="Platform">المنصة</span>
-                            <strong>سطر</strong>
-                        </div>
-
-                        <time data-ar="نوفمبر 2025" data-en="November 2025">
-                            نوفمبر 2025
-                        </time>
-                    </div>
-                </article>
-
-                <article class="course-card">
-                    <div class="course-icon">
-                        <i class="fa-solid fa-chart-column"></i>
-                    </div>
-
-                    <div class="course-content">
-                        <h3 data-ar="أهمية علوم البيانات والذكاء الاصطناعي"
-                            data-en="The Importance of Data Science and Artificial Intelligence">
-                            أهمية علوم البيانات والذكاء الاصطناعي
-                        </h3>
-
-                        <div class="course-source">
-                            <span data-ar="المنصة" data-en="Platform">المنصة</span>
-                            <strong>دروب</strong>
-                        </div>
-
-                        <time data-ar="يناير 2026" data-en="January 2026">
-                            يناير 2026
-                        </time>
-                    </div>
-                </article>
-
-                <article class="course-card">
-                    <div class="course-icon">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-
-                    <div class="course-content">
-                        <h3 data-ar="الذكاء الاصطناعي وتحليل البيانات في مستقبل سوق العمل"
-                            data-en="Artificial Intelligence and Data Analysis in the Future of the Job Market">
-                            الذكاء الاصطناعي وتحليل البيانات في مستقبل سوق العمل
-                        </h3>
-
-                        <div class="course-source">
-                            <span data-ar="المنصة" data-en="Platform">المنصة</span>
-                            <strong>دروب</strong>
-                        </div>
-
-                        <time data-ar="يناير 2026" data-en="January 2026">
-                            يناير 2026
-                        </time>
-                    </div>
-                </article>
-
-                <article class="course-card">
-                    <div class="course-icon">
-                        <i class="fa-solid fa-pen-ruler"></i>
-                    </div>
-
-                    <div class="course-content">
-                        <h3 data-ar="تصميم واجهة وتجربة المستخدم"
-                            data-en="UI / UX Design">
-                            تصميم واجهة وتجربة المستخدم
-                        </h3>
-
-                        <div class="course-source">
-                            <span data-ar="المنصة" data-en="Platform">المنصة</span>
-                            <strong>سطر</strong>
-                        </div>
-
-                        <time data-ar="سبتمبر 2026" data-en="September 2026">
-                            سبتمبر 2026
-                        </time>
-                    </div>
-                </article>
-
-                <article class="course-card">
-                    <div class="course-icon">
-                       <i class="fa-solid fa-microchip"></i>
-                    </div>
-
-                    <div class="course-content">
-                        <h3 data-ar="مقدمة في إنترنت الأشياء والتحول الرقمي"
-                            data-en="Introduction to IoT and Digital Transformation">
-                            مقدمة في إنترنت الأشياء والتحول الرقمي
-                        </h3>
-
-                        <div class="course-source">
-                            <span data-ar="المنصة" data-en="Platform">المنصة</span>
-                            <strong>CISCO</strong>
-                        </div>
-
-                        <time data-ar="أكتوبر 2026" data-en="October 2026">
-                            أكتوبر 2026
-                        </time>
-                    </div>
-                </article>
-
-            </div>
-
-        </section>
-
-        <!-- Projects -->
-        <section class="section reveal" id="projects">
-
-            <div class="section-title">
-                <span>04</span>
-
-                <h2 data-ar="المشاريع" data-en="Projects">
-                    المشاريع
-                </h2>
-            </div>
-
-            <div class="projects-grid">
-
-                <article class="project-card">
-
-                    <div class="project-number">01</div>
-
-                    <div class="project-status completed"
-                        data-ar="مكتمل"
-                        data-en="Completed">
-                        مكتمل
-                    </div>
-
-                    <h3 data-ar="DevTrack" data-en="DevTrack">
-                        DevTrack
-                    </h3>
-
-                    <p data-ar="نظام لإدارة المشاريع والمهام، يساعد المطورين على تنظيم مشاريعهم ومتابعة تقدمهم وإنجازاتهم في مكان واحد."
-                        data-en="DevTrack is a project and task management system that helps developers organize their projects and track their progress in one place.">
-                        DevTrack هو نظام لإدارة المشاريع والمهام، يساعد المطورين على تنظيم مشاريعهم ومتابعة تقدمهم وإنجازاتهم في مكان واحد.
-                    </p>
-
-                    <div class="tech-stack">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                        <span>PHP</span>
-                        <span>MySQL</span>
-                    </div>
-
-                    <div class="project-actions">
-                        <a href="https://devtrack.freehosting.dev/"
-                            class="project-btn"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            data-ar="عرض المشروع"
-                            data-en="View Project">
-                            عرض المشروع
-                        </a>
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-        <!-- Education -->
-        <section class="section reveal" id="education">
-
-            <div class="section-title">
-                <span>05</span>
-
-                <h2 data-ar="التعليم" data-en="Education">
-                    التعليم
-                </h2>
-            </div>
-
-            <div class="education-card">
-
-                <div class="education-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-
-                <div>
-
-                    <span data-ar="الكلية التقنية بالدمام"
-                        data-en="College of Technology in Dammam">
-                        الكلية التقنية بالدمام
-                    </span>
-
-                    <h3 data-ar="دبلوم تقنية البرمجة وتطوير الويب"
-                        data-en="Diploma in Programming and Web Development">
-                        دبلوم تقنية البرمجة وتطوير الويب
-                    </h3>
-
-                    <p>2025 — Present</p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-
-            <span>&lt;Nawaf /&gt;</span>
-
-            <p data-ar="أبني، أتعلم، وأتطور."
-                data-en="Build. Learn. Evolve.">
-                أبني، أتعلم، وأتطور.
-            </p>
-
-            <small>© 2026 نواف علي</small>
-
-        </div>
-    </footer>
-
-    <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop" aria-label="العودة إلى الأعلى">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <!-- External JavaScript -->
-    <script src="script.js"></script>
-
-</body>
-</html>
-
+/* ========================================
+   1. COLOR PALETTE
+======================================== */
+
+:root {
+    --bg: #06121a;
+    --bg-soft: #091923;
+    --card: rgba(10, 28, 39, 0.78);
+
+    --text: #e8f2f6;
+    --text-soft: #b4c8d2;
+    --muted: #829eac;
+
+    --blue: #087e9b;
+    --cyan: #55c6df;
+    --purple: #397d98;
+
+    --border: rgba(157, 207, 222, 0.10);
+    --border-hover: rgba(85, 198, 223, 0.35);
+
+    --gradient:
+        linear-gradient(
+            90deg,
+            #15516a,
+            #087e9b,
+            #55c6df,
+            #397d98,
+            #15516a
+        );
+}
+
+
+/* ========================================
+   2. GLOBAL
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Cairo", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.7;
+}
+
+::selection {
+    background: var(--cyan);
+    color: #06121a;
+}
+
+
+/* ========================================
+   3. ANIMATED BACKGROUND
+======================================== */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            rgba(8, 85, 108, 0.25),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 15% 80%,
+            rgba(12, 65, 84, 0.16),
+            transparent 45%
+        ),
+        #06121a;
+}
+
+.grid {
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+
+    background-image:
+        linear-gradient(
+            rgba(85, 198, 223, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(85, 198, 223, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    transform:
+        perspective(700px)
+        rotateX(62deg)
+        translateY(-20%);
+
+    animation: gridMove 24s linear infinite;
+}
+
+@keyframes gridMove {
+    0% {
+        transform:
+            perspective(700px)
+            rotateX(62deg)
+            translateY(-20%);
+    }
+
+    100% {
+        transform:
+            perspective(700px)
+            rotateX(62deg)
+            translateY(5%);
+    }
+}
+
+
+/* Background glow */
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.42;
+
+    animation: orbFloat 18s ease-in-out infinite alternate;
+}
+
+.orb-one {
+    width: 420px;
+    height: 420px;
+    background: #07556c;
+    top: 0;
+    left: 5%;
+}
+
+.orb-two {
+    width: 380px;
+    height: 380px;
+    background: #12465b;
+    right: 0;
+    top: 30%;
+    animation-delay: -6s;
+}
+
+.orb-three {
+    width: 340px;
+    height: 340px;
+    background: #087e9b;
+    left: 35%;
+    bottom: -10%;
+    opacity: 0.25;
+    animation-delay: -12s;
+}
+
+@keyframes orbFloat {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(45px, -35px) scale(1.1);
+    }
+
+    100% {
+        transform: translate(-35px, 45px) scale(0.95);
+    }
+}
+
+
+/* Floating particles */
+
+.floating-particles {
+    position: absolute;
+    inset: 0;
+}
+
+.floating-particles span {
+    position: absolute;
+
+    width: var(--size);
+    height: var(--size);
+
+    left: var(--x);
+    bottom: -10px;
+
+    border-radius: 50%;
+
+    background: rgba(85, 198, 223, 0.65);
+
+    box-shadow:
+        0 0 8px rgba(85, 198, 223, 0.55),
+        0 0 18px rgba(8, 126, 155, 0.25);
+
+    animation:
+        particleFloat var(--duration)
+        linear var(--delay)
+        infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) translateX(0) scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateY(-50vh) translateX(25px) scale(1);
+    }
+
+    100% {
+        transform: translateY(-110vh) translateX(-35px) scale(0.4);
+        opacity: 0;
+    }
+}
+
+
+/* ========================================
+   4. NAVIGATION
+======================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 0;
+
+    transition:
+        background 0.3s ease,
+        padding 0.3s ease,
+        border 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 13px 0;
+    background: rgba(6, 18, 26, 0.82);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+    width: min(1180px, 90%);
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--cyan);
+}
+
+.language-btn {
+    border: 1px solid var(--border);
+    background: rgba(157, 207, 222, 0.035);
+    color: var(--text);
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Space Grotesk", sans-serif;
+    transition: 0.3s;
+}
+
+.language-btn:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* ========================================
+   5. MUSIC BUTTON
+======================================== */
+
+.music-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 9px 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: rgba(157, 207, 222, 0.035);
+    color: var(--text);
+
+    font-family: "Cairo", sans-serif;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.music-btn i {
+    font-size: 12px;
+    color: var(--cyan);
+}
+
+.music-btn:hover {
+    background: rgba(8, 126, 155, 0.12);
+    border-color: var(--cyan);
+    color: var(--cyan);
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 20px rgba(8, 126, 155, 0.12);
+}
+
+.music-btn:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 4px;
+}
+
+.music-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   6. HERO SECTION
+======================================== */
+
+.hero {
+    width: min(1180px, 90%);
+    min-height: 100vh;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    align-items: center;
+    gap: 80px;
+
+    padding-top: 60px;
+}
+
+.hero-content {
+    animation: heroEnter 1s ease forwards;
+}
+
+@keyframes heroEnter {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-intro {
+    display: block;
+    color: var(--cyan);
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.hero h1 {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+
+    padding-bottom: 12px;
+
+    font-size: clamp(42px, 6vw, 78px);
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: -1px;
+
+    background: var(--gradient);
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    animation: gradientMove 5s linear infinite;
+}
+
+.hero-changing {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    min-height: 58px;
+    margin-top: 5px;
+
+    font-family: "Space Grotesk", "Cairo", sans-serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+}
+
+#changingText {
+    display: inline-block;
+    min-width: 20px;
+
+    background: var(--gradient);
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    animation: gradientMove 4s linear infinite;
+}
+
+.cursor {
+    color: var(--cyan);
+    animation: blink 0.8s infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.hero p {
+    max-width: 650px;
+    margin-top: 18px;
+    color: var(--text-soft);
+    line-height: 2;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 32px;
+}
+
+.btn {
+    padding: 13px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn.primary {
+    background: var(--gradient);
+    background-size: 250% auto;
+    color: white;
+
+    animation: gradientMove 5s linear infinite;
+}
+
+.btn.primary:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(8, 126, 155, 0.2);
+}
+
+.btn.secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.btn.secondary:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    transform: translateY(-4px);
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.social-links a {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    color: var(--muted);
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    transform: translateY(-4px);
+}
+
+
+/* ========================================
+   7. HERO VISUAL / CODE CARD
+======================================== */
+
+.hero-visual {
+    position: relative;
+    height: 500px;
+
+    display: grid;
+    place-items: center;
+}
+
+.code-card {
+    width: min(430px, 100%);
+
+    background: rgba(8, 23, 33, 0.86);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35),
+        0 0 60px rgba(8, 126, 155, 0.07);
+
+    animation: codeFloat 5s ease-in-out infinite;
+}
+
+@keyframes codeFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.code-header {
+    display: flex;
+    gap: 7px;
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.code-header span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #29414c;
+}
+
+.code-body {
+    padding: 25px;
+
+    font-family: "Space Grotesk", monospace;
+    line-height: 2;
+
+    color: #b8cbd4;
+}
+
+.code-line {
+    display: block;
+}
+
+.code-line b {
+    color: #55c6df;
+}
+
+.code-line em {
+    color: #82d8e8;
+    font-style: normal;
+}
+
+.indent {
+    padding-left: 25px;
+}
+
+.tech-tag {
+    position: absolute;
+
+    padding: 9px 15px;
+
+    border: 1px solid var(--border-hover);
+    background: rgba(8, 23, 33, 0.85);
+
+    backdrop-filter: blur(10px);
+    border-radius: 9px;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+
+    animation: tagFloat 4s ease-in-out infinite;
+}
+
+.tag-html {
+    top: 15%;
+    left: 0;
+}
+
+.tag-css {
+    right: 0;
+    top: 25%;
+    animation-delay: -1s;
+}
+
+.tag-js {
+    bottom: 20%;
+    left: 5%;
+    animation-delay: -2s;
+}
+
+.tag-php {
+    bottom: 10%;
+    right: 5%;
+    animation-delay: -3s;
+}
+
+@keyframes tagFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* ========================================
+   8. GENERAL SECTIONS
+======================================== */
+
+.section {
+    width: min(1180px, 90%);
+    margin: 150px auto 0;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.section-title span {
+    color: var(--cyan);
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.section-title h2 {
+    display: block;
+    padding-bottom: 8px;
+
+    font-size: 36px;
+    line-height: 1.4;
+
+    background: var(--gradient);
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    animation: gradientMove 5s linear infinite;
+}
+
+
+/* ========================================
+   9. ABOUT
+======================================== */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.about-text h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+.about-text p {
+    color: var(--text-soft);
+    line-height: 2;
+    margin-bottom: 15px;
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.about-card {
+    padding: 30px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--border-hover);
+}
+
+.about-card i {
+    color: var(--cyan);
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+.about-card h4 {
+    color: var(--text);
+}
+
+
+/* ========================================
+   10. SKILLS
+======================================== */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.skill {
+    padding: 22px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-hover);
+}
+
+.skill-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.skill-top div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.skill-top i {
+    color: var(--cyan);
+    font-size: 21px;
+}
+
+.skill-top span {
+    color: var(--text-soft);
+}
+
+.skill-top strong {
+    font-family: "Space Grotesk", sans-serif;
+    color: var(--cyan);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 7px;
+    background: #142832;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.skill-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+
+    background: var(--gradient);
+    background-size: 250% auto;
+
+    animation: gradientMove 4s linear infinite;
+
+    transition:
+        width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* ========================================
+   11. COURSES
+======================================== */
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.course-card {
+    display: flex;
+    gap: 20px;
+
+    padding: 25px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+
+    transition: 0.35s;
+}
+
+.course-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--border-hover);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.course-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+    background: rgba(8, 126, 155, 0.12);
+    color: var(--cyan);
+}
+
+.course-content {
+    min-width: 0;
+}
+
+.course-content h3 {
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.course-source {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 5px 10px;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.course-source strong {
+    color: var(--cyan);
+}
+
+.course-content time {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #8299a5;
+}
+
+
+/* ========================================
+   12. PROJECTS
+======================================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    position: relative;
+
+    padding: 35px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    overflow: hidden;
+    transition: 0.35s;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--border-hover);
+}
+
+.project-number {
+    font-family: "Space Grotesk", sans-serif;
+    color: rgba(157, 207, 222, 0.16);
+    font-size: 55px;
+    font-weight: 700;
+}
+
+.project-status {
+    display: inline-block;
+
+    margin: 20px 0 15px;
+    padding: 5px 10px;
+
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.project-status.completed {
+    color: #69dfb0;
+    background: rgba(105, 223, 176, 0.08);
+}
+
+.project-status.progress {
+    color: var(--cyan);
+    background: rgba(85, 198, 223, 0.08);
+}
+
+.project-card h3 {
+    color: var(--text);
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: var(--text-soft);
+    line-height: 2;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 25px;
+}
+
+.tech-stack span {
+    padding: 6px 10px;
+
+    border: 1px solid var(--border);
+    border-radius: 7px;
+
+    color: #a5bbc5;
+    font-size: 11px;
+
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.project-actions {
+    margin-top: 25px;
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    border: 1px solid rgba(85, 198, 223, 0.25);
+    border-radius: 8px;
+
+    background: rgba(85, 198, 223, 0.06);
+    color: var(--cyan);
+
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.project-btn:hover {
+    transform: translateY(-3px);
+    border-color: var(--cyan);
+    background: rgba(85, 198, 223, 0.12);
+
+    box-shadow:
+        0 10px 25px rgba(85, 198, 223, 0.1);
+}
+
+.project-btn.disabled {
+    cursor: default;
+    opacity: 0.55;
+}
+
+.project-btn.disabled:hover {
+    transform: none;
+    border-color: rgba(85, 198, 223, 0.25);
+    background: rgba(85, 198, 223, 0.06);
+    box-shadow: none;
+}
+
+
+/* ========================================
+   13. EDUCATION
+======================================== */
+
+.education-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    padding: 30px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.education-icon {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 15px;
+    background: rgba(8, 126, 155, 0.12);
+    color: var(--cyan);
+    font-size: 27px;
+}
+
+.education-card span {
+    color: var(--cyan);
+    font-size: 14px;
+}
+
+.education-card h3 {
+    color: var(--text);
+    margin: 7px 0;
+    font-size: 22px;
+}
+
+.education-card p {
+    color: var(--muted);
+}
+
+
+/* ========================================
+   14. FOOTER
+======================================== */
+
+footer {
+    margin-top: 150px;
+    padding: 50px 20px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    width: min(1180px, 90%);
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--muted);
+}
+
+.footer-content > span {
+    color: var(--cyan);
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.footer-content p {
+    color: var(--text-soft);
+}
+
+
+/* ========================================
+   15. BACK TO TOP
+======================================== */
+
+.back-to-top {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: rgba(8, 23, 33, 0.88);
+    backdrop-filter: blur(10px);
+
+    color: var(--cyan);
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+
+    transition: 0.3s;
+    z-index: 50;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   16. SCROLL REVEAL
+======================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   17. PAGE LOADER
+======================================== */
+
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(8, 85, 108, 0.18),
+            transparent 45%
+        ),
+        #06121a;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+}
+
+.page-loader::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(85, 198, 223, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(85, 198, 223, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+
+    mask-image:
+        radial-gradient(
+            circle at center,
+            black,
+            transparent 75%
+        );
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(420px, 80%);
+    text-align: center;
+}
+
+.loader-logo {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(85, 198, 223, 0.4);
+    border-radius: 22px;
+
+    color: var(--text);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+
+    background: rgba(8, 85, 108, 0.18);
+
+    box-shadow:
+        0 0 25px rgba(8, 126, 155, 0.15),
+        inset 0 0 25px rgba(85, 198, 223, 0.05);
+
+    animation: loaderPulse 2s ease-in-out infinite;
+}
+
+.loader-name {
+    margin-bottom: 35px;
+
+    color: var(--text);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.loader-line {
+    width: 100%;
+    height: 3px;
+
+    overflow: hidden;
+    border-radius: 10px;
+
+    background: rgba(157, 207, 222, 0.08);
+}
+
+.loader-progress {
+    width: 0;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        90deg,
+        #15516a,
+        #087e9b,
+        #55c6df
+    );
+
+    box-shadow:
+        0 0 15px rgba(85, 198, 223, 0.5);
+
+    transition: width 0.15s ease;
+}
+
+.loader-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 12px;
+
+    color: rgba(180, 200, 210, 0.65);
+    font-family: "Cairo", sans-serif;
+    font-size: 12px;
+}
+
+#loaderPercentage {
+    direction: ltr;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+@keyframes loaderPulse {
+    0%,
+    100% {
+        transform: scale(1);
+
+        box-shadow:
+            0 0 25px rgba(8, 126, 155, 0.15),
+            inset 0 0 25px rgba(85, 198, 223, 0.05);
+    }
+
+    50% {
+        transform: scale(1.05);
+
+        box-shadow:
+            0 0 40px rgba(8, 126, 155, 0.28),
+            inset 0 0 30px rgba(85, 198, 223, 0.08);
+    }
+}
+
+
+/* ========================================
+   18. TABLET RESPONSIVE
+======================================== */
+
+@media (max-width: 850px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 75px;
+        right: 5%;
+        left: 5%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 20px;
+
+        background: rgba(6, 18, 26, 0.96);
+        backdrop-filter: blur(20px);
+
+        border: 1px solid var(--border);
+        border-radius: 15px;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+
+        transition: 0.3s;
+    }
+
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav-menu a {
+        padding: 10px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 130px;
+        gap: 30px;
+    }
+
+    .hero-visual {
+        height: 400px;
+    }
+
+    .about-grid,
+    .projects-grid,
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ========================================
+   19. MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 40px;
+        line-height: 1.35;
+        padding-bottom: 10px;
+    }
+
+    .hero-changing {
+        font-size: 24px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-visual {
+        height: 330px;
+    }
+
+    .code-card {
+        width: 100%;
+    }
+
+    .tech-tag {
+        display: none;
+    }
+
+    .section {
+        margin-top: 100px;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .music-btn {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    .loader-content {
+        width: 78%;
+    }
+
+    .loader-logo {
+        width: 75px;
+        height: 75px;
+        font-size: 21px;
+    }
+
+    .loader-name {
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+}
+
+
+/* ========================================
+   20. ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+
+
+/* Arabic */
+html[lang="ar"] .skill-top,
+html[lang="ar"] .skill-info {
+    direction: rtl;
+}
+
+/* English */
+html[lang="en"] .skill-top,
+html[lang="en"] .skill-info {
+    direction: ltr;
+}
+
+.skill-top,
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: none !important;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .nav-menu {
+        display: flex !important;
+        position: static !important;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 18px;
+        overflow-x: auto;
+        padding: 10px 0;
+        visibility: visible !important;
+        opacity: 1 !important;
+        max-height: none !important;
+    }
+
+    .nav-menu a,
+    .nav-menu button {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    .nav-menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-menu {
+        scrollbar-width: none;
+    }
+}
+
+/* Skill Animation */
+.skill-fill {
+    width: 0;
+    transition: width 1.5s ease;
+}
